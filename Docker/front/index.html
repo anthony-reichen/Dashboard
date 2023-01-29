@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Dashboard</title>
+
+    <link rel="stylesheet" href="./materialize/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./style/dashboardStyle.css">
+
+</head>
+
+<body class="black">
+    <header>
+        <nav class="nav-extended">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+        </nav>
+    </header>
+
+    <ul id="slide-out" class="sidenav sidenav-fixed indigo darken-3">
+        <div class="collapsible">
+            <div id="nav-main-actions">
+                <li class="indigo center-align"><a class="subheader"><b>insert profile name</b></a></li>
+                <li>
+                <li><a class="dropdown-trigger" data-target="widget-dropdown">Add new widget</a></li>
+                </li>
+                <li><a>Remove widget</a></li>
+                <li><a>Manage profile</a></li>
+            </div>
+            <div id="nav-other-actions">
+                <li class="indigo center-align"><a class="subheader"><b>Other actions</b></a></li>
+                <li><a id="profile" href="profile.html">Profile</a></li>
+                <li><a id="login" href="./html/login.html">Login</a></li>
+                <li><a id="logout" onclick="logout()">Logout</a></li>
+            </div>
+        </div>
+    </ul>
+
+    <ul id='widget-dropdown' class='dropdown-content indigo darken-4'>
+        <li><a onclick="addWeatherWidget()">Add a Weather Report</a></li>
+        <li><a>Add a Weather Forecast</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a>Add Spotify Recommendations</a></li>
+    </ul>
+
+    <main>
+        <div class="content center">
+            <div class="container">
+                <div class="row">
+                </div>
+                <div class="row dashboard-content">
+                    <div style="position:absolute;top:50%;left:60%;transform: translate(-50%, -50%);" id="center-login"
+                        class="center-align">
+                        <div class="row">
+                            <h4 class="white-text">Before using the dashboard, please login.</h2>
+                        </div>
+                        <div class="row">
+                            <a href="html/login.html" class="waves-effect waves-light indigo btn">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div id="modal_content" class="modal-content"></div>
+    </div>
+
+    <template id="wCurrentWeather">
+        <div class="card white col s12 m4 l4">
+            <a class="material-icons small right wCurrentWeatherEditBtn">settings</a>
+            <div class="card-content">
+                <div class="row">
+                    <span class="card-title black-text wCurrentWeatherCityName"></span>
+                </div>
+                <div class="col s12 m12 l12 valign-wrapper wCurrentWeatherTriptych">
+                    <div class="col s4 m4 l4 wCurrentWeatherDegrees"></div>
+                    <div class="col s4 m4 l4"><img class="responsive-img wCurrentWeatherIcon"
+                            src="./animated/cloudy-day-1.svg" />
+                    </div>
+                    <div class="col s4 m4 l4">
+                        <p class="wCurrentWeatherWindSpeed"></p>
+                        <img class="responsive-img wCurrentWeatherWindArrow" src="./right-arrow-next-svgrepo-com.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <div id="modal1" class="modal">
+        <form id="form1">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="widgetId" type="hidden">
+                        <input id="cityPicker" type="text" class="validate autocomplete">
+                        <input id="insee" type="hidden">
+                        <label for="cityPicker">Select a city</label>
+                    </div>
+                </div>
+                <div id="citiesPickingDiv">
+                    <ul id="cityList">
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="modal-close waves-effect waves-green btn-flat">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./materialize/js/materialize.js"></script>
+    <script src="./scripts/utilityFunctions.js"></script>
+    <script src="./scripts/dashboardScript.js"></script>
+    <script src="./scripts/weatherWidget.js"></script>
+</body>
+
+</html>

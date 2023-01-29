@@ -1,0 +1,12 @@
+use dashboard-db
+db.createUser(
+  {
+    user: "spring",
+    pwd:"spring_dashboard_admin_001234",
+    roles: [
+      {
+        role: "readWrite", db: "dashboard-db"
+      }
+    ]
+  }
+)

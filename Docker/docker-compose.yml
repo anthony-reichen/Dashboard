@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  java-api:
+    build:
+      context: ./dashboard-backend/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: java-api
+    environment:
+      - MONGODB_CONNSTRING=mongodb://spring:spring_dashboard_admin_001234
+    links:
+      - mongo-db
+      - apache
+  mongo-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo-db
+    volumes:
+      - ./db/:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    environment:
+     - MONGO_INITDB_ROOT_USERNAME=spring
+     - MONGO_INITDB_ROOT_PASSWORD=spring_dashboard_admin_001234
+  apache:
+    image: httpd:latest
+    ports: 
+      - "80:80"
+    volumes:
+      - ./front/:/usr/local/apache2/htdocs/

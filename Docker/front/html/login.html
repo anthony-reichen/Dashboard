@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="../styles/registerStyle.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body class="indigo lighten-1">
+  <div class="row login">
+    <form class="col s12 l4 offset-l4" id="login_form">
+      <div class="card">
+        <div class="card-action indigo white-text center">
+          <h3>Login</h3>
+        </div>
+
+        <div class="card-content">
+          <div class="container">
+            <div class="row">
+              <div class="input-field margin-log">
+                <input placeholder="Your.email@addre.ss" name="email" id="email" type="email" class="validate" required>
+                <label for="email" class="active">Email address:</label>
+              </div>
+              <div class="input-field margin-log">
+                <input placeholder="Your password" name="password" id="password" type="password" class="validate"
+                  required>
+                <label for="password" class="active">Password:</label>
+              </div>
+              <div class="input-field col s12 center separator">
+                <button class="btn indigo btn-login">Login</button>
+              </div>
+            </div>
+            <a class="center-a" href="register.html">Don't have an account yet? Register here</a>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="../scripts/utilityFunctions.js"></script>
+  <script src="../scripts/loginScript.js"></script>
+</body>
+
+</html>
